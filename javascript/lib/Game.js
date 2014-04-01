@@ -1,11 +1,3 @@
-function Player(name) {
-  this.name = name;
-}
-
-Player.prototype.picks = function(pick) {
-  this.pick = pick;
-}
-
 function Game(player1, player2) {
   this.player1 = player1;
   this.player2 = player2;
@@ -41,8 +33,6 @@ Game.prototype._isSamePick = function() {
 Game.prototype.winnerMessage = function() {
 	var verbIndex = this.PAIRS[this.winner().pick].indexOf(this.loser.pick) + 2;
 	return this.winner().pick + ' ' + this.PAIRS[this.winner().pick][verbIndex] + ' ' + this.loser.pick;
-
-
-
-	// return 'Rock breaks scissors';
 };
+
+
