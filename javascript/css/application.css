@@ -1,6 +1,7 @@
 body {
 	text-align: center;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+	background-image: (./img'crossword.png');
 }
 
 .choices img{
