@@ -1,0 +1,50 @@
+<!doctype>
+<html>
+
+<link rel="stylesheet" type="text/css" href="/css/reset.css">  
+<link rel="stylesheet" type="text/css" href="/css/application.css">
+
+<head>
+	<title>RPSLS</title>
+</head>
+	<body>
+		<h1>Rock Paper Scissors Lizard Spock</h1>
+		<div class='choices'>
+		<div class='rotate'>
+			<img src="/images/rock.png" data-pick="rock">
+			<img src="/images/paper.png" data-pick="paper">
+			<img src="/images/scissors.png" data-pick="scissors">
+			<img src="/images/lizard.png" data-pick="lizard">
+			<img src="/images/spock.png" data-pick="spock">
+		</div>
+		</div>
+		<ul id='results'></ul>
+
+		<h3 id='player'></h3>
+		<h3 id='computer'></h3>
+
+		<script type="text/javascript" src="/javascript/lib/Game.js"></script>
+  	<script type="text/javascript" src="/javascript/lib/Player.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				
+				var p1 = new Player('Human')
+				var p2 = new Player('Computer')
+				var game = new Game(p1,p2);
+				
+				$('.choices img').on('click', function(){
+					p1.picks($(this).data('pick'));
+					p2.picks(p2.computerRandom());
+
+          var latestResult = $('<li>' + game.winnerMessage() + '</li>');
+          latestResult.prependTo('#results').slideDown();
+
+          $('#results li:nth-child(5)').fadeOut(function(){
+            $(this).remove();
+					})
+				});
+			})
+		</script>
+	</body>
+</html>
