@@ -12,14 +12,13 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = {
-			rock: 		['scissors', 'lizard'],
-			scissors: ['paper', 'lizard'],
-			paper: 		['rock', 'spock'],
-			lizard:   ['paper', 'spock'],
-			spock: 		['scissors', 'rock']
+		rock: 		['scissors', 'lizard', 'breaks', 'crushes'],
+		scissors: ['paper', 'lizard', 'cut', 'decapitate'],
+		paper: 		['rock', 'spock', 'covers', 'disproves'],
+		lizard:   ['paper', 'spock', 'eats', 'poisons'],
+		spock: 		['scissors', 'rock', 'smashes', 'vaporizes']
+
 };
-
-
 
 Game.prototype.winner = function() {
 	
@@ -39,19 +38,9 @@ Game.prototype._isSamePick = function() {
 	return this.player1.pick === this.player2.pick;
 }
 
-Game.prototype.MESSAGES = {
-		rock: 		['scissors', 'lizard', 'breaks', 'crushes'],
-		scissors: ['paper', 'lizard', 'cut', 'decapitate'],
-		paper: 		['rock', 'spock', 'covers', 'disproves'],
-		lizard:   ['paper', 'spock', 'eats', 'poisons'],
-		spock: 		['scissors', 'rock', 'smashes', 'vaporizes']
-
-};
-
-
 Game.prototype.winnerMessage = function() {
-	var verbIndex = this.MESSAGES[this.winner().pick].indexOf(this.loser.pick) + 2;
-	return this.winner().pick + ' ' + this.MESSAGES[this.winner().pick][verbIndex] + ' ' + this.loser.pick;
+	var verbIndex = this.PAIRS[this.winner().pick].indexOf(this.loser.pick) + 2;
+	return this.winner().pick + ' ' + this.PAIRS[this.winner().pick][verbIndex] + ' ' + this.loser.pick;
 
 
 
