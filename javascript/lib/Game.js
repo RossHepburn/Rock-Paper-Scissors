@@ -31,6 +31,8 @@ Game.prototype._isSamePick = function() {
 }
 
 Game.prototype.winnerMessage = function() {
+	if(this.winner() === null) return 'Draw!';
+	
 	var verbIndex = this.PAIRS[this.winner().pick].indexOf(this.loser.pick) + 2;
 	return this.winner().pick + ' ' + this.PAIRS[this.winner().pick][verbIndex] + ' ' + this.loser.pick;
 };

@@ -10,10 +10,10 @@
 		<h1>RPSLS</h1>
 		<div class='choices'>
 			<img src="./images/rock.jpg" data-pick="rock">
-			<img src="./images/paper.jpg" data-pick="rock">
-			<img src="./images/scissors.jpg" data-pick="rock">
-			<img src="./images/lizard.jpg" data-pick="rock">
-			<img src="./images/spock.jpg" data-pick="rock">
+			<img src="./images/paper.jpg" data-pick="paper">
+			<img src="./images/scissors.jpg" data-pick="scissors">
+			<img src="./images/lizard.jpg" data-pick="lizard">
+			<img src="./images/spock.jpg" data-pick="spock">
 		</div>
 		<ul id='results'></ul>
 		<script>
@@ -23,8 +23,9 @@
 				var p2 = new Player('Computer')
 				var game = new Game(p1,p2);
 				
-				$('.choices').on('click', function(){
-					p1.picks('rock');
+				$('.choices img').on('click', function(){
+					p1.picks($(this).data('pick'));
+					//p1.picks('rock');
 					p2.picks('spock');
 
 					var latestResult = $('<li>' + game.winnerMessage() + '</li>');
