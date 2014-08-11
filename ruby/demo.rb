@@ -1,7 +1,7 @@
 require_relative './lib/rock_paper_scissors'
 
 player1 = Player.new 'Alex'
-player2 = Player.new 'James'
+player2 = Player.new 'Ross'
 
 game = Game.new player1, player2
 
